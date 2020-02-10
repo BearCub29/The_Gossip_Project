@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>Profil de <%= params["id"] %></title>
+  </head>
+  <body>
+  <h1>Profil de <%= @users.find(params["author"]).first_name %> </h1>
+  <h1> <%= @users.find(params["author"]).description %></h1>
+  <h1> <%= @users.find(params["author"]).email %></h1>
+  <h1> <%= @users.find(params["author"]).age %></h1>
+  <h1> <%= @cities.find(@users.find(params["author"]).city_id).name %></h1>
+  </body>
+</html>

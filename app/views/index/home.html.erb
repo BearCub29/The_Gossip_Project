@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>The Gossip Project</title>
+  </head>
+  <body>
+    <h1>Mon super site de Gossip !</h1>
+    <% @gossips.each_with_index do |gossip,i| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <%= link_to"#{gossip.title}", page_gossip_path(@id = i+1), class: "card-title" %>
+          <h6 class="card-subtitle mb-2 text-muted"> <%= @users.find(gossip.user_id).first_name %></h6>
+        </div>
+      </div>
+    <% end %>
+  </body>
+</html>
+

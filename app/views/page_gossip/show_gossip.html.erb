@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <title>The Gossip Project N°<%= params["id"] %></title>
+  </head>
+  <body>
+    <h1>The Gossip N°<%= params["id"] %></h1>
+    <%= link_to"#{@users.find(@gossips.find(params["id"]).user_id).first_name}", page_author_path(@id=params["id"] ,  @author= @users.find(@gossips.find(params["id"]).user_id)) %>
+    <h1> <%= @gossips.find(params["id"]).title %></h1>
+    <h1> <%= @gossips.find(params["id"]).content %></h1>
+  </body>
+</html>
