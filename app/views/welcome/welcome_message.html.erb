@@ -1,1 +1,12 @@
-<h1> Hello to you <%= @user %> </h1>
+<html>
+  <head>
+    <title>Bienvenue <%= @user %> </title>
+  </head>
+  <body>
+  <h1> Bienvenue <%= @user %> j'espere </br> que tu es content de découvrir notre site!!!</h1>
+  <h2> Choisis ce que tu veux faire : </h2>
+  <%= link_to"Les Gossips", home_page_path,  class: "btn btn-success btn-lg btn-block" %>
+  <%= link_to"La Team", team_path,  class: "btn btn-success btn-lg btn-block" %>
+  <%= link_to"Les Contacts", contact_path,  class: "btn btn-success btn-lg btn-block" %>
+  </body>
+</html>

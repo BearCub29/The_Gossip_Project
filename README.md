@@ -1,24 +1,29 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Aujourd'hui tu vas découvrir la première partie d'un projet qui va nous prendre toute une semaine à finir : The Gossip Project
+## The Gossip Project est une application web qui va te permettre d'en savoir un peu plus sur tes camarades.
 
-Things you may want to cover:
+### INSTALLATION
 
-* Ruby version
+#### Concernant l'installation,quelques petites choses à faire :
+#### -Soit tu télécharge directement le dossier contenant l'app, soit tu executes un git clone .Les deux solutions sont dispos en cliquant sur le bouton vert Clone or download.
+#### -Ensuite une fois le dossier récupéré tu éxécutes un `$ bundle install` pour mettre toutes tes petites gems au bon format.
+#### -Ensuite on éxécute la commande `$ rails db:seed` pour se créer une base de donnée qui déchire.
+#### -L'étape suivante consiste à lancer le serveur avec `$ rails server`
+#### -Et pour finir va sur ce lien <http://localhost:3000/> et éclates toi!!!
 
-* System dependencies
+### Organisation App :
+#### -Une page d'acceuil
+#### -Une page Team
+#### -Une page Contact
+#### -Une page par Gossip
+#### -Une page par auteur de Gossip
+#### -Une page bonus welcome (http://localhost:3000/welcome/votre_prénom)
 
-* Configuration
+### Ruby version 2.5.1
 
-* Database creation
+### Gems bonus :
+#### Gem Faker : créer des attributs aléatoires cohérents
+#### Gem Table_print : afficher sous forme de tableau les tables
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Auteurs BearCub29 & Husain_KHATBA
