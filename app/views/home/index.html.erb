@@ -8,19 +8,6 @@
       <p class="lead text-center"> Retrouvez dès maintenant et jusqu'à que tous les corbeaux disparaissent, une selection des plus belles,bizarre,innatendu,gossip de cette session 11 de Thp!!!</p>
       <hr class="my-4 ">
       <p class="text-center">Pour en découvrir plus sur vos camarades de jeu, ça se passe en dessous!!!</p>
-    </div>
-    <% @gossips.each_with_index do |gossip,i| %>
-      <div class="card text-center" style="width: 18rem;">
-        <ul class="list-group list-group-flush ">
-          <li class="list-group-item"> <%=gossip.title%></li>
-          <li class="list-group-item"> Auteur du gossip : <%= @users.find(gossip.user_id).first_name %></li>
-        </ul>
-      </br>
-        <%= link_to"Go Gossip!!!", page_gossip_path(@id = i+1), class: "btn btn-success btn-lg btn-block" %>
-      </div>
-      </br>
-    <% end %>
+   
   </body>
 </html>
-
-

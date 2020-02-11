@@ -34,7 +34,7 @@ end
 
 20.times do
   Gossip.create!(
-    title: Faker::Marketing.buzzwords,
+    title: Faker::String.random(length: 3..14),
     content: Faker::ChuckNorris.fact,
     user: User.all.sample
     )

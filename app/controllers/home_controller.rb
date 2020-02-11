@@ -1,5 +1,5 @@
-class IndexController < ApplicationController
-  def home
+class HomeController < ApplicationController
+  def index
   puts "Welcome home"
   @gossips = Gossip.all
   @users = User.all

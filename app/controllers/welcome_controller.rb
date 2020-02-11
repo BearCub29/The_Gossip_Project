@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  def welcome_message
+  def show
     @user = params["first_name"]
   end
 
