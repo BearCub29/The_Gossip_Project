@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Ville de <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %></title>
+  </head>
+  <body>
+    <div class="card-header text-center">
+      Ville de <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %> 
+    </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item"> Code postale : <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).zip_code %></li>
+      </ul>
+  </body>
+</html>

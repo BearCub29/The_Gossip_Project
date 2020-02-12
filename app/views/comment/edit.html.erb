@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Edit Commentaire N°<%= @comment.id %></title>
+  </head>
+  <body>
+   <h1> Edit Commentaire N°<%=  @comment.id %> </h1>
+   <%= form_for @comment,url: gossip_comment_path  do |f| %>
+    <div class="form_group">
+    <label> Content <label>
+    <%= f.text_area :content , class: 'form-control' %>
+    </div>
+    <div class="form-group" >
+    <button type="submit", class="btn-primary" > Editer le commentaire </button>
+    </div>
+  <% end %>
+  <li class="list-group-item"><a href="<%= gossip_comment_path(@id = params[:gossip_id]) %>" class="btn btn-danger btn-lg btn-block" data-confirm="Etes vous sur ?" data-method="delete">Supprimer Commentaire</a></li>
+  </body>
+</html>

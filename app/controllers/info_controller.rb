@@ -1,5 +1,8 @@
 class InfoController < ApplicationController
-  def show
+  def show_contact
+  
+  end
+  def show_team
   
   end
 

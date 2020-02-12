@@ -1,0 +1,19 @@
+<html>
+<head>
+    <title>Profil de <%= @users.find(@gossips.find(params["id"]).user_id).first_name %></title>
+  </head>
+  <body>
+    <div class="card-header text-center">
+      Profil de <%= @users.find(@gossips.find(params["id"]).user_id).first_name %> <%= @users.find(@gossips.find(params["id"]).user_id).last_name %>
+    </div>
+      <ul class="list-group list-group-flush text-center">
+        <li class="list-group-item"> Age : <%= @users.find(@gossips.find(params["id"]).user_id).age %></li>
+        <li class="list-group-item"> Ville : <%=  @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %></li>
+        <li class="list-group-item"> <%= link_to"Profil Ville", city_path(@id=params["id"] ,  @author= @users.find(@gossips.find(params["id"]).user_id)) , class: "btn btn-success btn-lg btn-block" %></li>
+        <li class="list-group-item"> Contact mail : <%= @users.find(@gossips.find(params["id"]).user_id).email %></li>
+        <li class="list-group-item"> Description : <%= @users.find(@gossips.find(params["id"]).user_id).description %></li> 
+      </ul>
+  </body>
+</html>
+
+
