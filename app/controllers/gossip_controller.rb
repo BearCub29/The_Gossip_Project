@@ -1,11 +1,12 @@
 class GossipController < ApplicationController
+  before_action :authenticate_user, only: [:new, :show]
+
   def new
     @users = User.all
     @gossip = Gossip.new
   end
   def create
-      @anonymous = User.create(first_name: "Jean", last_name: "Huss", description: "hgckshgkgz", email: "jean@huss.com",age: 99,city_id: 143)
-      @gossip = Gossip.new(title: params[:title], content: params[:content],user_id: @anonymous.id ) # avec xxx qui sont les données obtenues à partir du formulaire
+      @gossip = Gossip.new(title: params[:title], content: params[:content],user_id: current_user.id ) # avec xxx qui sont les données obtenues à partir du formulaire
       if @gossip.save # essaie de sauvegarder en base @gossip
         redirect_to '/home'# si ça marche, il redirige vers la page d'index du site
       else
@@ -39,6 +40,15 @@ class GossipController < ApplicationController
     @gossip.destroy
     redirect_to home_index_path
 
+  end
+
+  private
+
+  def authenticate_user
+    unless current_user
+      flash[:danger] = "Please log in."
+      redirect_to new_session_path
+    end
   end
 
 end

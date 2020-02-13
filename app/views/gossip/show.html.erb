@@ -14,8 +14,11 @@
     <li class="list-group-item">Titre du gossip : <%= @gossips.find(params[:id]).title %></li>
     <li class="list-group-item">Date de création du gossip : <%= @gossips.find(params[:id]).created_at %></li>
     <li class="list-group-item"> Contenu du gossip : <%= @gossips.find(params[:id]).content %></li>
+    <% if @gossips.find(params[:id]).user_id == current_user.id %>
     <li class="list-group-item"> <%= link_to"Edit Gossip", edit_gossip_path(@id=params[:id]) , class: "btn btn-primary btn-lg btn-block" %></li>
     <li class="list-group-item"><a href="<%= gossip_path(@id = params[:id]) %>" class="btn btn-danger btn-lg btn-block" data-confirm="Etes vous sur ?" data-method="delete">Supprimer Gossip</a></li>
+    <% end %>
+    
     
    
   </ul>
@@ -32,7 +35,7 @@
   <% @comments.each do |comment| %>
     <% if comment.gossip_id == @jean.id %>
       <li class="list-group-item"><%= comment.content %></li>
-      <li class="list-group-item"><%= @users.find(comment.user_id).first_name %></li>
+      <li class="list-group-item"><%= @users.find(comment.user_id).first_name %></li> 
       <li class="list-group-item"> <%= link_to"Editer", edit_gossip_comment_path( @id = params[:id] ,  @commente= comment.id ), class: "btn btn-warning btn-lg btn-block" %></li>
     <% end %>
   <% end %>

@@ -1,0 +1,14 @@
+<html>
+  <body>
+  <h1> session d'authenfication </h1>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <%= label_tag 'Email' %>
+    <%= text_field_tag 'email' %>
+    <br /> <br />
+    <%= label_tag 'Mot de passe' %>
+    <%= text_area_tag 'password' %>
+    <br /> <br />
+    <%= submit_tag "Login" %>
+  <% end %>
+  </body>
+</html>

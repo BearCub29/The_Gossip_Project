@@ -15,6 +15,7 @@
           <ul class="list-group list-group-flush ">
             <li class="list-group-item"> <%=gossip.title%></li>
             <li class="list-group-item"> Auteur du gossip : <%= @users.find(gossip.user_id).first_name %></li>
+            <li class="list-group-item"> <%=@gossip_id=gossip.id%></li>
           </ul>
         </br>
           <%= link_to"Go Gossip!!!", gossip_path(@id = gossip.id), class: "btn btn-success btn-lg btn-block" %>
