@@ -1,13 +1,45 @@
 <html>
 <head>
-    <title>Ville de <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %></title>
+    <title>Ville de <%= @city.name %></title>
   </head>
   <body>
-    <div class="card-header text-center">
-      Ville de <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %> 
-    </div>
-      <ul class="list-group list-group-flush text-center">
-        <li class="list-group-item"> Code postale : <%= @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).zip_code %></li>
-      </ul>
+  <div class="card-header text-center">
+  <h3>Ville de <%= @city.name %> </h3>
+</div>
+</br>
+<div class="d-flex justify-content-around text-center">
+<div class="card " style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">Code postale : <%= @city.zip_code %></p>
+  </div>
+</div>
+</div>
+</br>
+<% @gossips.each do |gossip| %>
+  <% if gossip.user_id == @user.id %>
+<div class="d-flex justify-content-around text-center">
+<div class="card " style="width: 18rem;">
+  <div class="card-body">
+    <p class="card-text">Titre : <%=gossip.title%></p>
+    <p class="card-text">Auteur du gossip : <%= @users.find(gossip.user_id).first_name %></p>
+    <p class="card-text">Numéro : <%=@gossip_id=gossip.id%></p>
+    <hr class="my-4">
+    <%= link_to"Go Gossip!!!", gossip_path(@id = gossip.id), class: "btn btn-success btn-lg btn-block" %>
+  </div>
+</div>
+</div>
+</br>
+<% end %>
+<% end %>
   </body>
 </html>
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,6 @@ class GossipController < ApplicationController
   before_action :authenticate_user, only: [:new, :show]
 
   def new
-    @users = User.all
     @gossip = Gossip.new
   end
   def create
@@ -19,6 +18,8 @@ class GossipController < ApplicationController
     @jean = Gossip.find(params[:id])
     @gossips = Gossip.all
     @comments = Comment.all
+    @city = City.find(@users.find(@jean.user_id).city_id)
+    
   end
 
   def edit 

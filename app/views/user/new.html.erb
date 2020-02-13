@@ -1,31 +1,22 @@
 <html>
-  <body>
-    <%= form_tag url_for(action: 'create'), method: "post" do %>
-    <%= label_tag 'Prénom' %>
-    <%= text_field_tag 'first_name' %>
-    <br /> <br />
-    <%= label_tag 'Nom' %>
-    <%= text_field_tag 'last_name' %>
-    <br /> <br />
-    <%= label_tag 'Description' %>
-    <%= text_area_tag 'description' %>
-    <br /> <br />
-    <%= label_tag 'Email' %>
-    <%= text_field_tag 'email' %>
-    <br /> <br />
-    <%= label_tag 'Age' %>
-    <%= text_field_tag 'age' %>
-    <br /> <br />
-    <%= label_tag 'Mot de passe' %>
-    <%= text_field_tag 'password' %>
-    <br /> <br />
-    <%= label_tag 'Ville' %>
-    <%= text_field_tag 'city' %>
-    <br /> <br />
-    <%= label_tag 'Code postale' %>
-    <%= text_field_tag 'zip_code' %>
-    <br /> <br />
-    <%= submit_tag "Créer utilisateur" %>
+</br>
+<h1 class="text-center"> Page de Création utilisateur </h1>
+</br>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+    <div class="d-flex justify-content-around text-center">
+          <div class="card " style="width: 18rem;">
+            <div class="card-body">
+              <p class="card-text">Prénom <%= text_field_tag 'first_name' %> Nom <%= text_field_tag 'last_name' %> Age <%= text_field_tag 'age' %> </p>
+              <p class="card-text">Ville <%= text_field_tag 'city' %> Code postale <%= text_field_tag 'zip_code' %> </p>
+              <p class="card-text">Description <%= text_area_tag 'description' %> </p>
+              <p class="card-text"> Email <%= text_field_tag 'email' %> </p>
+              <p class="card-text"> Mot de passe <%= text_field_tag 'Mot de passe' %>  </p>
+              <hr class="my-4">
+              <%= submit_tag "Créer utilisateur" %>
+            </div>
+          </div>
+        </div>
   <% end %>
   </body>
 </html>
+

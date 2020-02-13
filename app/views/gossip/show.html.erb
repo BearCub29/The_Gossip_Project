@@ -5,38 +5,54 @@
   <body>
    
   <div class="card-header text-center">
-  The Gossip N°<%= params[:id] %>
+  <h3>The Gossip N°<%= params[:id] %></h3>
   </div>
-  <ul class="list-group list-group-flush text-center">
-  <li class="list-group-item">Auteur du gossip :<%= @users.find(@gossips.find(params[:id]).user_id).first_name %>  </li> 
-    <li class="list-group-item"> <%= link_to"Profil auteur", user_path(@id=params[:id] ,  @author= @users.find(@gossips.find(params[:id]).user_id)) , class: "btn btn-success btn-lg btn-block" %></li>
-    <li class="list-group-item"> <%= link_to"Profil Ville", city_path(@id=params[:id] ,  @author= @users.find(@gossips.find(params[:id]).user_id)) , class: "btn btn-success btn-lg btn-block" %></li>
-    <li class="list-group-item">Titre du gossip : <%= @gossips.find(params[:id]).title %></li>
-    <li class="list-group-item">Date de création du gossip : <%= @gossips.find(params[:id]).created_at %></li>
-    <li class="list-group-item"> Contenu du gossip : <%= @gossips.find(params[:id]).content %></li>
-    <% if @gossips.find(params[:id]).user_id == current_user.id %>
-    <li class="list-group-item"> <%= link_to"Edit Gossip", edit_gossip_path(@id=params[:id]) , class: "btn btn-primary btn-lg btn-block" %></li>
-    <li class="list-group-item"><a href="<%= gossip_path(@id = params[:id]) %>" class="btn btn-danger btn-lg btn-block" data-confirm="Etes vous sur ?" data-method="delete">Supprimer Gossip</a></li>
-    <% end %>
-    
-    
-   
-  </ul>
-  <%= form_tag( gossip_comment_index_path(params[:id]) , method: "post") do %>
-    <%= label_tag 'Comment' %>
-    <%= text_area_tag 'comment' %>
-    <br /> <br />
-    <%= submit_tag "Créer commentaire" %>
-  <% end %>
+  </br>
+<div class="d-flex justify-content-around text-center">
+  <div class="card " style="width: 18rem;">
+    <div class="card-body">
+      <p class="card-text">Auteur du gossip : <%= @users.find(@gossips.find(params[:id]).user_id).first_name %> </p>
+      <%= link_to"Profil auteur", user_path(@id=params[:id] ,  @author= @users.find(@gossips.find(params[:id]).user_id)) , class: "btn btn-dark btn-lg btn-block" %>
+      <hr class="my-4">
+      <p class="card-text">Ville du gossip : <%= @city.name %> </p>
+      <%= link_to"Profil Ville", city_path(@id=params[:id] ,  @author= @users.find(@gossips.find(params[:id]).user_id)) , class: "btn btn-secondary btn-lg btn-block" %>
+      <hr class="my-4">
+      <p class="card-text">Titre du gossip : <%= @gossips.find(params[:id]).title %> </p>
+      <p class="card-text">Date de création du gossip : <%= @gossips.find(params[:id]).created_at %> </p>
+      <p class="card-text">Contenu du gossip : <%= @gossips.find(params[:id]).content %> </p>
+      <% if @gossips.find(params[:id]).user_id == current_user.id %>
+        <li class="list-group-item"> <%= link_to"Edit Gossip", edit_gossip_path(@id=params[:id]) , class: "btn btn-primary btn-lg btn-block" %></li>
+        <li class="list-group-item"><a href="<%= gossip_path(@id = params[:id]) %>" class="btn btn-danger btn-lg btn-block" data-confirm="Etes vous sur ?" data-method="delete">Supprimer Gossip</a></li>
+      <% end %>
+    </div>
+  </div>
 </div>
+</br>
+  <%= form_tag( gossip_comment_index_path(params[:id]) , method: "post") do %>
+    <div class="d-flex justify-content-around text-center">
+      <div class="card " style="width: 18rem;">
+        <div class="card-body">
+          <p class="card-text">Commentaires <%= text_area_tag 'comment' %> </p>
+          <hr class="my-4">
+          <%= submit_tag "Créer commentaire" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+</div>
+</br>
 <div>
-  <p>Commentaires : </p>
+<div class="card-header text-center">
+<h3>Commentaires</h3>
+</div>
   <ul class="list-group list-group-flush text-center">
   <% @comments.each do |comment| %>
     <% if comment.gossip_id == @jean.id %>
       <li class="list-group-item"><%= comment.content %></li>
       <li class="list-group-item"><%= @users.find(comment.user_id).first_name %></li> 
+      <% if comment.user_id == current_user.id %>
       <li class="list-group-item"> <%= link_to"Editer", edit_gossip_comment_path( @id = params[:id] ,  @commente= comment.id ), class: "btn btn-warning btn-lg btn-block" %></li>
+      <% end %>
     <% end %>
   <% end %>
   </ul>
@@ -45,5 +61,6 @@
 </html>
 
 
+  
 
 

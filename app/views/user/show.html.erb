@@ -4,15 +4,21 @@
   </head>
   <body>
     <div class="card-header text-center">
-      Profil de <%= @users.find(@gossips.find(params["id"]).user_id).first_name %> <%= @users.find(@gossips.find(params["id"]).user_id).last_name %>
+      <h3>Profil de <%= @users.find(@gossips.find(params["id"]).user_id).first_name %> <%= @users.find(@gossips.find(params["id"]).user_id).last_name %></h3>
     </div>
-      <ul class="list-group list-group-flush text-center">
-        <li class="list-group-item"> Age : <%= @users.find(@gossips.find(params["id"]).user_id).age %></li>
-        <li class="list-group-item"> Ville : <%=  @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %></li>
-        <li class="list-group-item"> <%= link_to"Profil Ville", city_path(@id=params["id"] ,  @author= @users.find(@gossips.find(params["id"]).user_id)) , class: "btn btn-success btn-lg btn-block" %></li>
-        <li class="list-group-item"> Contact mail : <%= @users.find(@gossips.find(params["id"]).user_id).email %></li>
-        <li class="list-group-item"> Description : <%= @users.find(@gossips.find(params["id"]).user_id).description %></li> 
-      </ul>
+    </br>
+    <div class="d-flex justify-content-around text-center">
+    <div class="card " style="width: 18rem;">
+      <div class="card-body">
+        <p class="card-text">Age : <%= @users.find(@gossips.find(params["id"]).user_id).age %></p>
+        <p class="card-text">Ville : <%=  @cities.find(@users.find(@gossips.find(params["id"]).user_id).city_id).name %></p>
+        <%= link_to"Profil Ville", city_path(@id=params["id"] ,  @author= @users.find(@gossips.find(params["id"]).user_id)) , class: "btn btn-dark btn-lg btn-block" %>
+        <hr class="my-4">
+        <p class="card-text">Contact mail : <%= @users.find(@gossips.find(params["id"]).user_id).email %></p>
+        <p class="card-text">Description : <%= @users.find(@gossips.find(params["id"]).user_id).description %></p>
+      </div>
+    </div>
+  </div>
   </body>
 </html>
 

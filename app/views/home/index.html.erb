@@ -3,27 +3,32 @@
     <title>The Gossip Project</title>
   </head>
   <body>
+  <%= image_tag "gossip_project.png", class: "d-block w-100", alt: "Gossip_project" %>
     <div class="jumbotron">
-      <h1 class="display-4 text-center"> Bienvenue dans Gossip Land !</h1>
-      <p class="lead text-center"> Retrouvez dès maintenant et jusqu'à que tous les corbeaux disparaissent, une selection des plus belles,bizarre,innatendu,gossip de cette session 11 de Thp!!!</p>
-      <%= link_to"Créer Gossip", new_gossip_path, class: "btn btn-info btn-lg btn-block" %>
       <hr class="my-4 ">
-      <p class="text-center">Pour en découvrir plus sur vos camarades de jeu, ça se passe en dessous!!!</p>
+      <h1 class="display-4 text-center"> Bienvenue dans Gossip Land !</h1>
+      <p class="lead text-center "> Retrouvez dès maintenant et jusqu à que tous les corbeaux disparaissent, une selection des plus belles,bizarre,innatendu,gossip de cette session 11 de Thp!!!</p>
+      <%= link_to"Créer Gossip", new_gossip_path, class: "btn btn-dark btn-lg btn-block" %>
+      <hr class="my-4 ">
+      <h2 class="text-center">Pour en découvrir plus sur vos camarades de jeu, ça se passe en dessous!!!</h2>
+      <hr class="my-4 ">
 
       <% @gossips.each do |gossip| %>
-        <div class="card text-center" >
-          <ul class="list-group list-group-flush ">
-            <li class="list-group-item"> <%=gossip.title%></li>
-            <li class="list-group-item"> Auteur du gossip : <%= @users.find(gossip.user_id).first_name %></li>
-            <li class="list-group-item"> <%=@gossip_id=gossip.id%></li>
-          </ul>
-        </br>
-          <%= link_to"Go Gossip!!!", gossip_path(@id = gossip.id), class: "btn btn-success btn-lg btn-block" %>
+        <div class="d-flex justify-content-around text-center">
+          <div class="card " style="width: 18rem;">
+            <div class="card-body">
+              <h3 class="card-title"> <%=gossip.title%> </h3>
+              <p class="card-text">Auteur du gossip : <%= @users.find(gossip.user_id).first_name %> </p>
+              <p class="card-text"> Nombre de commentaire <%= gossip.comments.count %> </p>
+              <hr class="my-4">
+              <%= link_to"Go Gossip!!!", gossip_path(@id = gossip.id), class: "btn btn-secondary btn-lg btn-block" %>
+            </div>
+          </div>
         </div>
-        </br>
-        
       <% end %>
-   
   </body>
 </html>
 
+
+
+      

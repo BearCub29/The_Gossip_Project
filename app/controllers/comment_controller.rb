@@ -1,8 +1,7 @@
 class CommentController < ApplicationController
   before_action :authenticate_user, only: [:create]
   def create
-    @anonymous = User.all.find_by(first_name: "Jean")
-    @comment = Comment.new(content: params[:comment],user_id: @anonymous.id,gossip_id: params[:gossip_id] )
+    @comment = Comment.new(content: params[:comment],user_id: current_user.id,gossip_id: params[:gossip_id] )
     @comment.save
     redirect_to gossip_path(params[:gossip_id])
   end
