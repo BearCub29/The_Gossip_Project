@@ -18,8 +18,10 @@
 #### -Une page Team
 #### -Une page Contact
 #### -Une page par Gossip
+#### -Une page par Ville
 #### -Une page par auteur de Gossip
-#### -Une page bonus welcome (http://localhost:3000/welcome/votre_prénom)
+#### -Une page bonus (http://localhost:3000/welcome/votre_prénom)
+#### -Et de multiples choses à découvrir!!!
 
 ### Ruby version 2.5.1
 
