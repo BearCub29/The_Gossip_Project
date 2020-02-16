@@ -10,7 +10,7 @@
               <p class="card-text">Ville <%= text_field_tag 'city' %> Code postale <%= text_field_tag 'zip_code' %> </p>
               <p class="card-text">Description <%= text_area_tag 'description' %> </p>
               <p class="card-text"> Email <%= text_field_tag 'email' %> </p>
-              <p class="card-text"> Mot de passe <%= text_field_tag 'password' %>  </p>
+              <p class="card-text"> Mot de passe <%= password_field_tag 'password' %>  </p>
               <hr class="my-4">
               <%= submit_tag "Créer utilisateur" %>
             </div>

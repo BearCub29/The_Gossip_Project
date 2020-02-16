@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+
 User.destroy_all
 City.destroy_all
 Gossip.destroy_all
@@ -28,7 +29,8 @@ end
     description: Faker::Lorem.sentence(word_count: rand(5..20)),
     email: Faker::Internet.email,
     age: Faker::Number.between(from: 13, to: 99),
-    city: City.all.sample
+    city: City.all.sample,
+    password: "hello"
     )
 end
 
@@ -85,3 +87,4 @@ end
     comment: Comment.all.sample
     )
 end
+
